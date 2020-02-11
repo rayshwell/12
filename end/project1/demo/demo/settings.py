@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 添加应用名
+    'booktest',
 ]
 
 MIDDLEWARE = [
@@ -76,6 +78,7 @@ WSGI_APPLICATION = 'demo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# 配置项目的数据库。默认使用关系型数据库sqlite 轻量级文件数据库
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
