@@ -1,0 +1,15 @@
+*{
+margin:0;
+padding:0;
+color:red
+}
+img{
+weight:100px;
+height:100px
+}
+.container{
+widtt:500px;
+margin:0 auto;
+}
+.center{
+text-align:center}

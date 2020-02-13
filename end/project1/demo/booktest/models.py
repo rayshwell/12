@@ -12,10 +12,19 @@ class Book(models.Model):
     title=models.CharField(max_length=20)
     price=models.FloatField(default=8)
     pub_date=models.DateField(default="1998-11-11")
-
+    def __str__(self):
+        return self.title
 class Hero(models.Model):
     name=models.CharField(max_length=20)
     gender=models.CharField(max_length=6,choices=(('male','男'),('femle','女')),default='male')
     content=models.CharField(max_length=100)
     # book 指一对多的外键 on_delete代表删除主表数据时如何做
     book=models.ForeignKey(Book,on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
+
+# django orm 关联查询
+# 多方Hero    一方Book
+# 1. 多找一    多方对象.关系字段   exp：h1.book
+
+# 2. 一找多    一方对象.小写多方类名_set.all()  exp：b1.hero_set.all()

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body class="center">
+<div class="container">
+<h2>这是首页</h2>
+<div>
+    <img src="/static/img/虚拟环境.png" alt="">
+</div>
+<ul>
+    {% for book in books %}
+    <a href="/booktest/detail/{{book.id}}"><li>{{book.title}} --{{book.price}} </li></a>
+    {% endfor %}
+</ul>
+</div>
+</body>
+</html>

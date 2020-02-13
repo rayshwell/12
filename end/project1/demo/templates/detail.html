@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详情页</title>
+</head>
+<body>
+<h1>这里是详情页</h1>
+<div>
+    <h2>书名：{{ book.title }}</h2>
+    <ul>
+        {% for hero in book.hero_set.all %}
+        <li>{{hero.name}} -- {{hero.gender}}--{{hero.content}}</li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>
