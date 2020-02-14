@@ -11,11 +11,17 @@
 <div>
     <img src="/static/img/虚拟环境.png" alt="">
 </div>
+    <h3>共有书籍({{books.count}})</h3>
 <ul>
     {% for book in books %}
-    <a href="/booktest/detail/{{book.id}}"><li>{{book.title}} --{{book.price}} </li></a>
+    {# <a href="/detail/{{book.id}}"><li>{{book.title}} --{{book.price}} </li></a> #}
+
+   <li> <a href="{% url 'booktest:detail' book.id %}">{{book.title}} --{{book.price}} </a>
+       <a href="{% url 'booktest:deletebook' book.id %}">删除</a>
+   </li>
     {% endfor %}
 </ul>
+
 </div>
 </body>
 </html>

@@ -19,9 +19,24 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/',admin.site.urls),
-    path('booktest/',include('booktest.urls'))
+    path('',include('booktest.urls',namespace='booktest'))
 ]
 
 
 #项目的所有路由地址配置文件
 # admin路由是django自带的命令模块
+
+
+
+# 硬编码  在html文件中有很多超级链接， 其中href属性人工写成绝对路径 ，就叫硬编码
+
+# 在开发的过程可能需要反复修改路由 ，如果使用硬编码非常不方便，需要解除硬编码
+
+# 解除硬编码步骤：
+# 1 需要给应用一个app_name="应用名" 下载应用的urls.py中
+# 2 在项目路由中给应用分流时， 在include 中 提供命名空间
+# 3 在应用中给每一个路由起一个名字
+# 4 在html中 使用时 href = "{% url '命名空间名':'路由name' 实参列表 %}"
+
+# 以前定位路由 靠总路由正则表达式+应用路由正则表达式
+# 解除硬编码之后 ，使用 应用命名空间 + 应用路由名字

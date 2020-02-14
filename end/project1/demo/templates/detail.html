@@ -10,9 +10,16 @@
     <h2>书名：{{ book.title }}</h2>
     <ul>
         {% for hero in book.hero_set.all %}
-        <li>{{hero.name}} -- {{hero.gender}}--{{hero.content}}</li>
+        <li>{{hero.name}} -- {{hero.gender}}--{{hero.content}}
+            <a href="{% url 'booktest:edithero' hero.id %}">编辑</a>
+            <a href="{% url 'booktest:deletehero' hero.id %}">删除</a>
+        </li>
         {% endfor %}
+
     </ul>
+    <a href="{% url 'booktest:addhero' book.id %}">添加英雄</a>
 </div>
+{# <a href="/">返回首页</a> #}
+<a href="{% url 'booktest:index' %}">返回首页</a>
 </body>
 </html>
