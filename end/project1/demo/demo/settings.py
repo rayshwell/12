@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 添加应用名
     'booktest',
+    'polls'
 ]
 
 MIDDLEWARE = [
