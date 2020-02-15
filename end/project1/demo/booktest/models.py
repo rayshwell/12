@@ -19,9 +19,37 @@ class Hero(models.Model):
     gender=models.CharField(max_length=6,choices=(('male','男'),('femle','女')),default='male')
     content=models.CharField(max_length=100)
     # book 指一对多的外键 on_delete代表删除主表数据时如何做
-    book=models.ForeignKey(Book,on_delete=models.CASCADE)
+    # 如果在关系字段中使用 related_name="heros" 则一找多  一方对象.heros.all() == 一方对象.hero_set.all()
+    book=models.ForeignKey(Book,on_delete=models.CASCADE,related_name="heros")
     def __str__(self):
         return self.name
+class UserManager(models.Manager):
+    """
+    自定义模型管理类  该模型不在具有objects对象
+    """
+    def deletePhone(self,tele):
+        # django默认的objects 是Manager类型   *.objects.get()
+        user=self.get(phone=tele)
+        user.delete()
+    def createUser(self,tele):
+        # self.model 可以获取模型类构造函数
+        user=self.model()
+        user.phone=tele
+        user.save()
+
+class User(models.Model):
+    phone=models.CharField(max_length=11,null=True,blank=True,verbose_name="手机号")
+    # 自定义过管理字段之后不在有objects， 自定义了一个新的objects
+    objects=UserManager()
+    def __str__(self):
+        return self.phone
+    class Meta:
+        db_table="用户类"
+        ordering=["-phone"]
+        # admin页面进入模型类显示名字
+        verbose_name="用户模型类a"
+        # admin页面在应用下方显示的模型名
+        verbose_name_plural="用户模型类b"
 
 # django orm 关联查询
 # 多方Hero    一方Book
