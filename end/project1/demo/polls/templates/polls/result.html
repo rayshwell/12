@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>结果</title>
+     <link rel="stylesheet" href="/static/polls/css/detail.css">
+</head>
+<body>
+<div class="formone">
+<h2>投票信息：{{article.title}}</h2>
+    <h3>当前得票信息</h3>
+    <br>
+    <ul>
+        {% for ticket in tickets  %}
+        <li>
+            {{ticket.content}} 票数：{{ticket.count}}
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'polls:detail' article.id %}">返回</a>
+    </div>
+</body>
+</html>

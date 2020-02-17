@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详情</title>
+    <link rel="stylesheet" href="/static/polls/css/detail.css">
+</head>
+<body>
+
+<form action="" method="post" class="formone">
+  <h2>投票信息：{{article.title}}</h2>
+   <h3>投票选项</h3>
+
+    <ul>
+        {% for ticket in tickets  %}
+        <li>
+            <input type="radio" value="{{ticket.id}}" name="choice" checked>{{ticket.content}}
+        </li>
+        {% endfor %}
+    </ul>
+    <div class="boot">
+    <input type="submit"value="投票">
+    <br>
+    <a href="{% url 'polls:index' %}">返回</a>
+    </div>
+</form>
+
+</body>
+</html>

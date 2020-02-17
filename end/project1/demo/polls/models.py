@@ -10,8 +10,8 @@ class Article(models.Model):
 
 
 class Ticket(models.Model):
-    content = models.FloatField(verbose_name="投票内容")
-    count = models.FloatField(verbose_name="投票数量")
+    content = models.CharField(verbose_name="投票内容",max_length=20)
+    count = models.FloatField(verbose_name="投票数量",default=6)
     contact=models.ForeignKey(Article,on_delete=models.CASCADE,related_name="articles")
     def __str__(self):
         return self.content

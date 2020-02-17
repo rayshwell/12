@@ -6,8 +6,6 @@ app_name="polls"
 urlpatterns = [
 
     url(r'^$', views.index,name='index'),
-    # url(r'^detail/(\d+)/$',views.detail,name='detail'),
-
-
-    # url(r'^addhero/(\d+)/$',views.addhero,name='addhero'),
+    url(r'^detail/(\d+)/$',views.detail,name='detail'),
+    url(r'^result/(\d+)/$',views.result,name='result'),
 ]

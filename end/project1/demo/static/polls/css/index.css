@@ -1,0 +1,14 @@
+*{
+    color:red
+}
+.container{
+margin: 0 auto;
+width:300px;
+
+}
+h2{
+    text-align:center;
+}
+ul{
+padding-left:70px
+}

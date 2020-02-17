@@ -66,6 +66,7 @@ def edithero(request,heroid):
         hero.name = request.POST.get("heroname")
         hero.content = request.POST.get("herocontent")
         hero.sex = request.POST.get("sex")
+        print(hero.sex)
         hero.save()
         url = reverse("booktest:detail", args=(hero.book.id,))
         return redirect(to=url)
@@ -80,6 +81,7 @@ def editbook(request,bookid):
         book.title = request.POST.get("booktitle")
         book.price = request.POST.get("bookprice")
         book.pub_date = request.POST.get("pub_date")
+
         book.save()
         url = reverse("booktest:index")
         return redirect(to=url)
