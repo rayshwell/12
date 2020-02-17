@@ -8,9 +8,7 @@
 <body class="center">
 <div class="container">
 <h2>这是首页</h2>
-<div>
-    <img src="/static/img/虚拟环境.png" alt="">
-</div>
+
     <h3>共有书籍({{books.count}})</h3>
 <ul>
     {% for book in books %}
@@ -23,6 +21,7 @@
     {% endfor %}
 </ul>
  <a href="{% url 'booktest:addbook' %}">添加书籍</a>
+    <a href="http://127.0.0.1:8000/download/1/">下载txt</a>
 </div>
 </body>
 </html>

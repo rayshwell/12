@@ -26,8 +26,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '1kzbypjgs+66y3+8#9*lb#_u-gt)ze+gdpsx((rb0h-2jh$@+s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# 开启调试模式
 DEBUG = True
-
+# 关闭调试模式
+# DEBUG = False
+# 关闭调试模式ALLOWED_HOSTS 里必须写  默认是空的
+# 允许谁来访问
 ALLOWED_HOSTS = []
 
 
@@ -42,7 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 添加应用名
     'booktest',
-    'polls'
+    'polls',
+    'download'
 ]
 
 MIDDLEWARE = [
@@ -55,7 +60,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+# 项目的根路由配置
 ROOT_URLCONF = 'demo.urls'
 
 TEMPLATES = [
@@ -129,3 +134,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # 配置静态文件所处位置
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+# 媒体资源配置
+MEDIA_URL ='/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIAFILES_DIRS = [os.path.join(BASE_DIR,'media')]
+
