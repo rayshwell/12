@@ -8,6 +8,8 @@
 <body>
 
 <form action="" method="post" class="formone">
+    {# csrf_token 用来获取csrf_token 防止跨站攻击#}
+    {% csrf_token %}
   <h2>投票信息：{{article.title}}</h2>
    <h3>投票选项</h3>
 

@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/static/polls/css/index.css">
-    <title>首页</title>
-</head>
-<body>
-<div class="container">
+{%extends 'polls/base.html'%}
+{%block body%}
+    <div class="container">
     <h2>投票信息汇总</h2>
 <ul>
     {% for article in articles %}
    <li><a href="{% url 'polls:detail' article.id %}">{{article.id}}.{{article.title}}</a></li>
     {% endfor %}
 </ul>
+<!--        {% include 'polls/other.html' %}-->
+{%endblock%}
 
-</div>
-</body>
-</html>

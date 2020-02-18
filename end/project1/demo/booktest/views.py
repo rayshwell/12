@@ -12,7 +12,7 @@ def index(request):
     # result=template.render(context)
     # # 3 将渲染结果使用HttpResponse返回
     # return HttpResponse(result)
-    return render(request,'booktest/index.html',{'books':books})
+    return render(request,'booktest/index.html',{'books':books,'name':'hshw','name1':'456<h2>123</h2>'})
 
 def detail(request,bookid):
     # template=loader.get_template('detail.html')

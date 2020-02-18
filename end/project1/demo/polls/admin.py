@@ -3,12 +3,12 @@ from django.contrib.admin import ModelAdmin
 
 # Register your models here.
 
-from .models import Article,Ticket
+from .models import Article,Ticket,User
 
 class TicketInline(admin.StackedInline):
     # book关联hero
     model = Ticket
-    extra = 1
+    extra = 2
 class ArticleAdmin(ModelAdmin):
         # 定义模型管理类
         # 通过该类修改后台页面
@@ -29,4 +29,5 @@ class TicketAdmin(ModelAdmin):
 
 admin.site.register(Article,ArticleAdmin)
 admin.site.register(Ticket,TicketAdmin )
+admin.site.register(User)
 

@@ -55,7 +55,8 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     # 先关闭csrf验证，不然会出来443
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    # 开启之后，会检测是否携带csrf_token信息，用于Post检测
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -65,6 +66,7 @@ ROOT_URLCONF = 'demo.urls'
 
 TEMPLATES = [
     {
+        # 指明摸板使用的引擎：将django 模板转换为最终的html
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # 在dirs中配置直接的模板目录
         'DIRS':[os.path.join(BASE_DIR,'templates')],
@@ -138,4 +140,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 MEDIA_URL ='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIAFILES_DIRS = [os.path.join(BASE_DIR,'media')]
+#使用自定义的用户类作为django的认证类需要使用配置
+AUTH_USER_MODEL='polls.User'
 
