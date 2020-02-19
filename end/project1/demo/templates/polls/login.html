@@ -1,10 +1,27 @@
 {%extends 'polls/base.html'%}
 {%block body%}
+<!-- # 1 需要在html中自己手动编写表单-->
+{%comment%}
 <form action="#" method="post">
      {% csrf_token %}
-    用户名：<input type="text" name="username">
+    用户名：<input type="text" name="username" required>
     <br>
-    密码：<input type="password" name="password">
+    密码：<input type="password" name="password" required>
+    <br>
+    <input type="submit" value="登录">
+    {{errors}}
+</form>
+{%endcomment%}
+
+
+<!--# 2 使用表单类生成一个表单-->
+<form action="#" method="post">
+     {% csrf_token %}
+    {# {{lf}} #}
+    {{lf.username.label}}:{{lf.username}}
+    <br>
+
+    {{lf.password.label}}:{{lf.password}}
     <br>
     <input type="submit" value="登录">
 </form>
