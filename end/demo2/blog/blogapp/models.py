@@ -21,8 +21,8 @@ class Article(models.Model):
     tags=models.ManyToManyField(Tag)
 class Comment(models.Model):
     name=models.CharField(max_length=20,verbose_name="评论人")
-    url=models.URLField(default="",verbose_name="个人主页")
-    email=models.EmailField(default="",verbose_name="个人邮箱")
+    url=models.URLField(default="http：www.baidu.com",verbose_name="个人主页")
+    email=models.EmailField(default="87411@qq.com",verbose_name="个人邮箱")
     create_name=models.DateTimeField(auto_now_add=True,verbose_name="评论时间")
     body=models.CharField(max_length="500",verbose_name="评论内容")
     article=models.ForeignKey(Article,on_delete=models.CASCADE,verbose_name="所属文章")
