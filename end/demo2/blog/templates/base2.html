@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load myfun %}
+{% block aside %}
+<aside class="col-md-4">
+                <div class="widget widget-recent-posts">
+                    <h3 class="widget-title">最新文章</h3>
+                    {% get_latestarticles 4 as latestarticles %}
+                    <ul>
+                        {% for article in latestarticles %}
+                        <li>
+                            <a href="{% url 'blogapp:detail' article.id %}">{{article.title}}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="widget widget-archives">
+                    <h3 class="widget-title">归档</h3>
+                    {% get_latesdates 3 as latesdates %}
+                    <ul>
+                        {% for date in latesdates %}
+                         <li>
+                            <a href="/?type=date&year={{date.year}}&month={{date.month}}">{{date.year}} 年 {{date.month}} 月</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="widget widget-category">
+                    <h3 class="widget-title">分类</h3>
+                    {% get_categorys 4 as categorys %}
+                    <ul>
+                        {% for c in categorys %}
+                         <li>
+                            <a href="/?type=category&category_id={{c.id}}">{{c.name}} <span class="post-count">({{c.article_set.count}})</span></a>
+                        </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+
+                <div class="widget widget-tag-cloud">
+                    <h3 class="widget-title">标签云</h3>
+                    {% get_tags 5 as tags %}
+                    <ul>
+                        {% for t in tags %}
+                        <li>
+                            <a href="/?type=tag&tag_id={{t.id}}">{{t.name}}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="rss">
+                    <a href="{% url 'blogapp:rss' %}"><span class="ion-social-rss-outline"></span> RSS 订阅</a>
+                </div>
+            </aside>
+{% endblock %}
